@@ -1,0 +1,44 @@
+     function checkIfRandom(firstStep, secondStep) {
+
+         // let showResult = confirm("Would you like detailed info?");
+         let showResult = false;
+         let randomMin = 100000000000;
+         let randomMax = -1;
+
+
+         for (let z = 0; z < firstStep; z++) {
+
+             let numOne = 0;
+             let numZero = 0;
+
+             //here we count each 1 and 0
+             for (let i = 0; i < secondStep; i++) {
+                 let value1 = Math.round(Math.random());
+                 (value1 == 1) ? numOne++ : numZero++;
+             }
+
+             //here we trying to find possible minimum and maximum out of results
+             if (numOne > randomMax || numZero > randomMax) {
+                 numOne > numZero ? randomMax = numOne : randomMax = numZero
+             }
+
+
+             if (numOne < randomMin || numZero < randomMin) {
+                 numOne < numZero ? randomMin = numOne : randomMin = numZero
+             }
+
+             if (showResult === true) {
+                 console.log('1: ' + numOne);
+                 console.log('0: ' + numZero);
+                 console.log('_____')
+             }
+         }
+
+
+         console.log(randomMin);
+         console.log(randomMax);
+         console.log('_____')
+     }
+
+
+     checkIfRandom(1000, 100);
