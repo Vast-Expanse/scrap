@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table, td{
+            border: 1px solid black;
+            float: left;
+        }
+    </style>
+
+</head>
+<button onclick="evenXuneven()">Proceed</button>
+<div style="border: 6px solid #3e3a1e;float: left;">
+<label for="desiredValue">Enter value</label>
+<input type="number" id="desiredValue" name="value" min="0" value="">
+
+    <p>Select what you desire:</p>
+    <div><input type="radio" id="even" name="selector" value="even"  checked>
+    <label for="even">Even</label></div>
+
+    <div><input type="radio" id="uneven" name="selector" value="uneven" >
+    <label for="uneven">Uneven</label>
+    </div>
+
+
+
+    <table id="myTable">
+
+    </table>
+</div>
+
+
+
+
+<script>
+
+var global;
+ 
+function evenXuneven() {
+    let number = document.getElementById("desiredValue").value;
+
+    if(document.getElementById("even").checked==true) {
+
+
+        for (let i = 0; i < number; i++) {
+            if (i % 2) {
+                global=i;
+                inputValueIntoTable();
+            }
+        }
+
+
+    }else {
+
+        for (let i = 1; i < number; i++) {
+            if (i % 2 == 0) {
+                global=i;
+                inputValueIntoTable();
+            }
+        }
+
+    }
+
+}
+ function inputValueIntoTable() {
+     let x = document.createElement("TR");
+     x.setAttribute("id", "myTr");
+     document.getElementById("myTable").appendChild(x);
+
+     var y = document.createElement("TD");
+     var t = document.createTextNode(global);
+     y.appendChild(t);
+     document.getElementById("myTr").appendChild(y);
+ }
+</script>
+
+</body>
+</html>
