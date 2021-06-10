@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <style>
+        .inputBox {
+            float: left;
+        }
+
+        .userBox {
+            border: solid 2px #2d3131;
+            float: left;
+        }
+        .button {
+            width: 130px;
+        }
+        .list {
+            float: left;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="userBox">
+
+
+    <div class="inputBox">
+    <label for="name">Enter User name: </label>
+    <br><input type="text" id="name"></div>
+
+
+<div class="inputBox">
+    <label for="age">Enter user age:</label>
+    <br><input type="number" id="age"></div>
+
+
+
+
+<button class="button" onclick="addNewUserOnList()">Add new User</button>
+    <br>
+    <button class="button" onclick="removeUser()">Clear User info</button>
+
+    <ul class="list">
+    </ul>
+</div>
+
+<script>
+
+//    var d = document.getElementById('1');
+ //   d.innerHTML = 122;
+
+//var userName;
+//var userAge;
+
+  function getUserInfo() {
+     let userName = document.getElementById("name").value;
+     let userAge = document.getElementById('age').value;
+      return {
+          userName, userAge
+      }
+  }
+
+    function addNewUserOnList() {
+         let userInfo = getUserInfo();
+       $(".list").append(`<li class="userInfo">${userInfo.userName +", " + userInfo.userAge}</li>`);
+
+    }
+   function removeUser() {
+     $(".userInfo").remove();
+   }
+
+</script>
+
+</body>
+
+</html>
